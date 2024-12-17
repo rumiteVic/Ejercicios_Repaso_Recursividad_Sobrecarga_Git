@@ -41,17 +41,13 @@ void main() {
 	bool elija = false;
 	bool decimales = false;
 	bool divide = false;
-
 	int elegirQueHacer;
-
 	float suma;
 	float resta;
 	float multiplicacion;
 	float division;
-
 	int num1;
 	int num2 = 1;
-
 	float nume1;
 	float nume2 = 1;
 	std::cout << "Ponga 1 para valores enteros o 0 para valores decimales: ";
@@ -102,7 +98,7 @@ void main() {
 	}
 
 	if (elige == 0) {
-		suma =CalcularSuma(num1, num2, nume1, nume2, decimales);
+		suma = CalcularSuma(num1, num2, nume1, nume2, decimales);
 		std::cout << "La suma es de: " << suma;
 	}
 	if (elige == 1) {
@@ -110,12 +106,11 @@ void main() {
 		std::cout << "La resta es de: " << resta;
 	}
 	if (elige == 2) {
-		multiplicacion= CalcularMultiplicacion(num1, num2, nume1, nume2, decimales);
+		multiplicacion = CalcularMultiplicacion(num1, num2, nume1, nume2, decimales);
 		std::cout << "La multiplicacion es de: " << multiplicacion;
 	}
 	if (elige == 3) {
 		division = CalcularDivision(num1, num2, nume1, nume2, decimales);
 		std::cout << "La division es de: " << division;
 	}
-	
 }
