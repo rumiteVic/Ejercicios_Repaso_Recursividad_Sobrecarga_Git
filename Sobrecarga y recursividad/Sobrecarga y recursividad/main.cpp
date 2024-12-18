@@ -82,7 +82,7 @@ void main() {
 		std::cin >> num2;
 	}
 	if ((elige == 3 && num2 == 0) || (elige == 3 && nume2 == 0)) {
-		std::cout << "Ponga cualquier numero menos el 0";
+		std::cout << "Ponga cualquier numero menos el 0 ";
 		divide = true;
 	}
 	while (divide) {
