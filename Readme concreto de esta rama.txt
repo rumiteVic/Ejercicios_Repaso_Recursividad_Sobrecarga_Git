@@ -1,0 +1,1 @@
+Aquí tenemos el archivo de mi intento del examen de ayer 19/12/2024, donde aqui si decido usar vectores, la única cosa de la que me he copiado ha sido del snake y los vectores. Ignora esta rama, ty.
