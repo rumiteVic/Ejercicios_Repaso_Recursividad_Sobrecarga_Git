@@ -2,7 +2,7 @@
 #include <vector>
 #include <Windows.h>
 
-void turnos3(bool &sePuede, int &input, bool &turno) {
+void turnos(bool &sePuede, int &input, bool &turno) {
 	
 	if (!turno) {
 		std::cout << "Turno del jugador X\n";
@@ -30,7 +30,7 @@ void turnos3(bool &sePuede, int &input, bool &turno) {
 	}
 	
 }
-void tablero3(bool& turno,bool &sePuede, int &input, std::vector<short> &jugadorX, std::vector<short> &jugadorY) {
+void tableroo(bool& turno,bool &sePuede, int &input, std::vector<short> &jugadorX, std::vector<short> &jugadorY) {
 	const int casillas = 3;
 	char tablero[casillas][casillas];
 	int filas = 0;
@@ -70,7 +70,7 @@ void tablero3(bool& turno,bool &sePuede, int &input, std::vector<short> &jugador
 		}
 		std::cout << "\n";
 	}
-	turnos3(sePuede, input, turno);
+	turnos(sePuede, input, turno);
 	for (int a = 0; a < casillas; a++) {
 		for (int b = 0; b < casillas; b++) {
 			std::cout << tablero[a][b] << " ";
@@ -83,7 +83,7 @@ void tablero3(bool& turno,bool &sePuede, int &input, std::vector<short> &jugador
 		for (int a = 0; a < casillas; a++) {
 			if (tablero[0][0] == 'O' || tablero[0][0] == 'X') {
 				std::cout << "Prueba otra columna\n";
-				return turnos3(sePuede, input, turno);
+				return turnos(sePuede, input, turno);
 			}
 			else if (tablero[0][a] == 'X' || tablero[0][a] == 'O') {
 				filas = a - 1;
@@ -100,7 +100,7 @@ void tablero3(bool& turno,bool &sePuede, int &input, std::vector<short> &jugador
 		for (int a = 0; a < casillas; a++) {
 			if (tablero[0][1] == 'O' || tablero[0][1] == 'X') {
 				std::cout << "Prueba otra columna\n";
-				return turnos3(sePuede, input, turno);
+				return turnos(sePuede, input, turno);
 			}
 			else if (tablero[a][1] == 'X' || tablero[a][1] == 'O') {
 				filas = a - 1;
@@ -117,7 +117,7 @@ void tablero3(bool& turno,bool &sePuede, int &input, std::vector<short> &jugador
 		for (int a = 0; a < casillas; a++) {
 			if (tablero[0][2] == 'O' || tablero[0][2] == 'X') {
 				std::cout << "Prueba otra columna\n";
-				return turnos3(sePuede, input, turno);
+				return turnos(sePuede, input, turno);
 			}
 			else if (tablero[a][2] == 'X' || tablero[a][2] == 'O') {
 				filas = a - 1;
@@ -147,12 +147,12 @@ void tablero3(bool& turno,bool &sePuede, int &input, std::vector<short> &jugador
 	}
 	turno = true;
 	//Las O
-	turnos3(sePuede, input, turno);
+	turnos(sePuede, input, turno);
 	if (input == 0) {
 		for (int a = 0; a < casillas; a++) {
 			if (tablero[0][0] == 'O' || tablero[0][0] == 'X') {
 				std::cout << "Prueba otra columna\n";
-				return turnos3(sePuede, input, turno);
+				return turnos(sePuede, input, turno);
 			}
 			else if (tablero[a][0] == 'X' || tablero[a][0] == 'O') {
 				filas = a - 1;
@@ -169,7 +169,7 @@ void tablero3(bool& turno,bool &sePuede, int &input, std::vector<short> &jugador
 		for (int a = 0; a < casillas; a++) {
 			if (tablero[0][1] == 'O' || tablero[0][1] == 'X') {
 				std::cout << "Prueba otra columna\n";
-				return turnos3(sePuede, input, turno);
+				return turnos(sePuede, input, turno);
 			}
 			else if (tablero[a][1] == 'X' || tablero[a][1] == 'O') {
 				filas = a - 1;
@@ -186,7 +186,7 @@ void tablero3(bool& turno,bool &sePuede, int &input, std::vector<short> &jugador
 		for (int a = 0; a < casillas; a++) {
 			if (tablero[0][2] == 'O' || tablero[0][2] == 'X') {
 				std::cout << "Prueba otra columna\n";
-				return turnos3(sePuede, input, turno);
+				return turnos(sePuede, input, turno);
 			}
 			else if (tablero[a][2] == 'X' || tablero[a][2] == 'O') {
 				filas = a - 1;
@@ -216,7 +216,7 @@ void tablero3(bool& turno,bool &sePuede, int &input, std::vector<short> &jugador
 	}
 
 }
-void comprobacion3(std::vector<short> &jugadorX, std::vector<short> &jugadorY, bool &ganar, int &winXTotales, int &winOTotales) {
+void comprobacion(std::vector<short> &jugadorX, std::vector<short> &jugadorY, bool &ganar, int &winXTotales, int &winOTotales) {
 	const int casillas = 3;
 	char tablero[casillas][casillas];
 	int winX = 0;
@@ -484,488 +484,6 @@ void comprobacion3(std::vector<short> &jugadorX, std::vector<short> &jugadorY, b
 
 }
 
-//Conecta 4
-void turnos4(bool& sePuede, int& input, bool& turno) {
-
-	if (!turno) {
-		std::cout << "Turno del jugador X\n";
-		std::cout << "Ponga un numero del 1 al 4\n";
-		while (!sePuede) {
-			std::cin >> input;
-			input = input - 1;
-			if (input >= 0 && input <= 4) {
-				sePuede = true;
-			}
-		}
-		sePuede = false;
-	}
-	else {
-		std::cout << "Turno del jugador O\n";
-		std::cout << "Ponga un numero del 1 al 4\n";
-		while (!sePuede) {
-			std::cin >> input;
-			input = input - 1;
-			if (input >= 0 && input <= 4) {
-				sePuede = true;
-			}
-		}
-		sePuede = false;
-	}
-
-}
-void tablero4(bool& turno, bool& sePuede, int& input, std::vector<short>& jugadorX, std::vector<short>& jugadorY) {
-	const int casillas = 4;
-	char tablero[casillas][casillas];
-	int filas = 0;
-
-
-	for (int a = 0; a < casillas; a++) {
-		for (int b = 0; b < casillas; b++) {
-			tablero[a][b] = ' ';
-		}
-	}
-	for (int a = 0; a < casillas; a++) {
-		for (int b = 0; b < casillas; b++) {
-			tablero[a][b] = '~';
-		}
-	}
-	for (int i = 0; i < jugadorX.size(); i++) {
-
-		if (i % 2 == 0) {
-			tablero[jugadorX[i]][jugadorY[i]] = 'X';
-		}
-		else if (i % 2 == 1) {
-			tablero[jugadorX[i]][jugadorY[i]] = 'O';
-		}
-	}
-	for (int i = 0; i < jugadorX.size(); i++) {
-		if (i % 2 == 0) {
-			tablero[jugadorX[i]][jugadorY[i]] = 'X';
-		}
-		else if (i % 2 == 1) {
-			tablero[jugadorX[i]][jugadorY[i]] = 'O';
-		}
-	}
-
-	for (int a = 0; a < casillas; a++) {
-		for (int b = 0; b < casillas; b++) {
-			std::cout << tablero[a][b] << " ";
-		}
-		std::cout << "\n";
-	}
-	turnos3(sePuede, input, turno);
-	for (int a = 0; a < casillas; a++) {
-		for (int b = 0; b < casillas; b++) {
-			std::cout << tablero[a][b] << " ";
-		}
-		std::cout << "\n";
-	}
-	std::cout << "\n";
-	//Las X
-	if (input == 0) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[0][0] == 'O' || tablero[0][0] == 'X') {
-				std::cout << "Prueba otra columna\n";
-				return turnos3(sePuede, input, turno);
-			}
-			else if (tablero[0][a] == 'X' || tablero[0][a] == 'O') {
-				filas = a - 1;
-				break;
-			}
-			else if (a == 3 && tablero[0][a] == '~') {
-				filas = 3;
-			}
-		}
-		jugadorX.push_back(filas);
-		jugadorY.push_back(0);
-	}
-	if (input == 1) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[0][1] == 'O' || tablero[0][1] == 'X') {
-				std::cout << "Prueba otra columna\n";
-				return turnos3(sePuede, input, turno);
-			}
-			else if (tablero[a][1] == 'X' || tablero[a][1] == 'O') {
-				filas = a - 1;
-				break;
-			}
-			else if (a == 3 && tablero[a][0] == '~') {
-				filas = 3;
-			}
-		}
-		jugadorX.push_back(filas);
-		jugadorY.push_back(1);
-	}
-	if (input == 2) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[0][2] == 'O' || tablero[0][2] == 'X') {
-				std::cout << "Prueba otra columna\n";
-				return turnos3(sePuede, input, turno);
-			}
-			else if (tablero[a][2] == 'X' || tablero[a][2] == 'O') {
-				filas = a - 1;
-				break;
-			}
-			else if (a == 2 && tablero[a][2] == '~') {
-				filas = 3;
-			}
-		}
-		jugadorX.push_back(filas);
-		jugadorY.push_back(2);
-	}
-	for (int i = 0; i < jugadorX.size(); i++) {
-		if (i % 2 == 0) {
-			tablero[jugadorX[i]][jugadorY[i]] = 'X';
-		}
-		else if (i % 2 == 1) {
-			tablero[jugadorX[i]][jugadorY[i]] = 'O';
-		}
-	}
-
-	for (int a = 0; a < casillas; a++) {
-		for (int b = 0; b < casillas; b++) {
-			std::cout << tablero[a][b] << " ";
-		}
-		std::cout << "\n";
-	}
-	turno = true;
-	//Las O
-	turnos3(sePuede, input, turno);
-	if (input == 0) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[0][0] == 'O' || tablero[0][0] == 'X') {
-				std::cout << "Prueba otra columna\n";
-				return turnos3(sePuede, input, turno);
-			}
-			else if (tablero[a][0] == 'X' || tablero[a][0] == 'O') {
-				filas = a - 1;
-				break;
-			}
-			else if (a == 2 && tablero[a][0] == '~') {
-				filas = 2;
-			}
-		}
-		jugadorX.push_back(filas);
-		jugadorY.push_back(0);
-	}
-	if (input == 1) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[0][1] == 'O' || tablero[0][1] == 'X') {
-				std::cout << "Prueba otra columna\n";
-				return turnos3(sePuede, input, turno);
-			}
-			else if (tablero[a][1] == 'X' || tablero[a][1] == 'O') {
-				filas = a - 1;
-				break;
-			}
-			else if (a == 2 && tablero[a][0] == '~') {
-				filas = 2;
-			}
-		}
-		jugadorX.push_back(filas);
-		jugadorY.push_back(1);
-	}
-	if (input == 2) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[0][2] == 'O' || tablero[0][2] == 'X') {
-				std::cout << "Prueba otra columna\n";
-				return turnos3(sePuede, input, turno);
-			}
-			else if (tablero[a][2] == 'X' || tablero[a][2] == 'O') {
-				filas = a - 1;
-				break;
-			}
-			else if (a == 2 && tablero[a][2] == '~') {
-				filas = 2;
-			}
-		}
-		jugadorX.push_back(filas);
-		jugadorY.push_back(2);
-	}
-	for (int i = 0; i < jugadorX.size(); i++) {
-		if (i % 2 == 0) {
-			tablero[jugadorX[i]][jugadorY[i]] = 'X';
-		}
-		else if (i % 2 == 1) {
-			tablero[jugadorX[i]][jugadorY[i]] = 'O';
-		}
-	}
-
-	for (int a = 0; a < casillas; a++) {
-		for (int b = 0; b < casillas; b++) {
-			std::cout << tablero[a][b] << " ";
-		}
-		std::cout << "\n";
-	}
-
-}
-void comprobacion4(std::vector<short>& jugadorX, std::vector<short>& jugadorY, bool& ganar, int& winXTotales, int& winOTotales) {
-	const int casillas = 3;
-	char tablero[casillas][casillas];
-	int winX = 0;
-	int winO = 0;
-	int empate = 0;
-	for (int a = 0; a < casillas; a++) {
-		for (int b = 0; b < casillas; b++) {
-			tablero[a][b] = ' ';
-		}
-	}
-	for (int a = 0; a < casillas; a++) {
-		for (int b = 0; b < casillas; b++) {
-			tablero[a][b] = '~';
-		}
-	}
-
-	for (int i = 0; i < jugadorX.size(); i++) {
-
-		if (i % 2 == 0) {
-			tablero[jugadorX[i]][jugadorY[i]] = 'X';
-		}
-		else if (i % 2 == 1) {
-			tablero[jugadorX[i]][jugadorY[i]] = 'O';
-		}
-	}
-	//Comprobar horizontal
-	if (!ganar) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[0][a] == 'X') {
-				winX++;
-			}
-		}
-		if (winX == 3) {
-			std::cout << "Ganan las X";
-			ganar = true;
-			winXTotales++;
-		}
-	}
-	winX = 0;
-	if (!ganar) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[1][a] == 'X') {
-				winX++;
-			}
-		}
-		if (winX == 3) {
-			std::cout << "Ganan las X";
-			ganar = true;
-			winXTotales++;
-		}
-	}
-	winX = 0;
-	if (!ganar) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[2][a] == 'X') {
-				winX++;
-			}
-		}
-		if (winX == 3) {
-			std::cout << "Ganan las X";
-			ganar = true;
-			winXTotales++;
-		}
-	}
-	winX = 0;
-
-	//Comprobar vertical
-	if (!ganar) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[a][1] == 'X') {
-				winX++;
-			}
-		}
-		if (winX == 3) {
-			std::cout << "Ganan las X";
-			ganar = true;
-			winXTotales++;
-		}
-	}
-	winX = 0;
-	if (!ganar) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[a][1] == 'X') {
-				winX++;
-			}
-		}
-		if (winX == 3) {
-			std::cout << "Ganan las X";
-			ganar = true;
-			winXTotales++;
-		}
-	}
-	winX = 0;
-	if (!ganar) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[a][2] == 'X') {
-				winX++;
-			}
-		}
-		if (winX == 3) {
-			std::cout << "Ganan las X";
-			ganar = true;
-			winXTotales++;
-		}
-	}
-	winX = 0;
-	//Comprobar diagonal
-	if (!ganar) {
-		if (tablero[0][0] == 'X') {
-			winX++;
-		}
-		if (tablero[1][1] == 'X') {
-			winX++;
-		}
-		if (tablero[2][2] == 'X') {
-			winX++;
-		}
-		if (winX == 3) {
-			ganar = true;
-			winXTotales++;
-			std::cout << "Ganan las X";
-		}
-	}
-	winX = 0;
-	if (!ganar) {
-		if (tablero[0][2] == 'X') {
-			winX++;
-		}
-		if (tablero[1][1] == 'X') {
-			winX++;
-		}
-		if (tablero[2][0] == 'X') {
-			winX++;
-		}
-		if (winX == 3) {
-			ganar = true;
-			winXTotales++;
-			std::cout << "Ganan las X";
-		}
-	}
-	winX = 0;
-
-	//Comprobar las Os
-	if (!ganar) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[0][a] == 'O') {
-				winO++;
-			}
-		}
-		if (winO == 3) {
-			std::cout << "Ganan las O";
-			winOTotales++;
-			ganar = true;
-		}
-	}
-	winO = 0;
-	if (!ganar) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[1][a] == 'O') {
-				winO++;
-			}
-		}
-		if (winO == 3) {
-			std::cout << "Ganan las O";
-			winOTotales++;
-			ganar = true;
-		}
-	}
-	winO = 0;
-	if (!ganar) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[2][a] == 'O') {
-				winO++;
-			}
-		}
-		if (winO == 3) {
-			std::cout << "Ganan las O";
-			winOTotales++;
-			ganar = true;
-		}
-	}
-	winO = 0;
-
-	//Comprobar vertical
-	if (!ganar) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[a][1] == 'O') {
-				winO++;
-			}
-		}
-		if (winO == 3) {
-			std::cout << "Ganan las O";
-			winOTotales++;
-			ganar = true;
-		}
-	}
-	winO = 0;
-	if (!ganar) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[a][1] == 'O') {
-				winO++;
-			}
-		}
-		if (winO == 3) {
-			std::cout << "Ganan las O";
-			winOTotales++;
-			ganar = true;
-		}
-	}
-	winO = 0;
-	if (!ganar) {
-		for (int a = 0; a < casillas; a++) {
-			if (tablero[a][2] == 'O') {
-				winO++;
-			}
-		}
-		if (winO == 3) {
-			std::cout << "Ganan las O";
-			winOTotales++;
-			ganar = true;
-		}
-	}
-	winO = 0;
-	//Diagonal O
-	if (!ganar) {
-		if (tablero[0][0] == 'O') {
-			winO++;
-		}
-		if (tablero[1][1] == 'O') {
-			winO++;
-		}
-		if (tablero[2][2] == 'O') {
-			winO++;
-		}
-		if (winO == 3) {
-			ganar = true;
-			std::cout << "Ganan las O";
-		}
-	}
-	winO = 0;
-	if (!ganar) {
-		if (tablero[0][2] == 'O') {
-			winO++;
-		}
-		if (tablero[1][1] == 'O') {
-			winO++;
-		}
-		if (tablero[2][0] == 'O') {
-			winO++;
-		}
-		if (winO == 3) {
-			ganar = true;
-			winOTotales++;
-			std::cout << "Ganan las O";
-		}
-	}
-	winO = 0;
-
-
-	if (empate == 9) {
-		std::cout << "Empate";
-		ganar = true;
-	}
-	empate = 0;
-
-}
 
 void elegir(int &eleccion, bool &elegido) {
 	std::cout << "Elige una dificultad\n0 facil\n1 intermedio\n2 dificil\n";
@@ -1002,15 +520,8 @@ void main() {
 	if (eleccion == 0) {
 		while (!ganar) {
 			turno = false;
-			tablero3(turno, sePuede, input, jugadorX, jugadorY);
-			comprobacion3(jugadorX, jugadorY, ganar, winXTotales, winYTotales);
-		}
-	}
-	if (eleccion == 1) {
-		while (!ganar) {
-			turno = false;
-			tablero4(turno, sePuede, input, jugadorX, jugadorY);
-			comprobacion4(jugadorX, jugadorY, ganar, winXTotales, winYTotales);
+			tableroo(turno, sePuede, input, jugadorX, jugadorY);
+			comprobacion(jugadorX, jugadorY, ganar, winXTotales, winYTotales);
 		}
 	}
 	
